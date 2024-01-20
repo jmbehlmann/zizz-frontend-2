@@ -4,7 +4,8 @@ import { Signup } from './components/Signup'
 import { Login } from './components/Login'
 import { Dashboard } from './components/Dashboard'
 import { ProfileShow } from './components/ProfileShow'
-import { FollowingIndex } from './components/FollowingIndex'
+import { Following } from './components/Following'
+import { Followers } from './components/Followers'
 import { UsersIndex } from './components/UsersIndex'
 
 export function Content() {
@@ -19,7 +20,8 @@ export function Content() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/" element={<Dashboard />} />
           <Route path="/users/:userId" element={<ProfileShow />} />
-          <Route path="/following" element={<FollowingIndex />} />
+          <Route path="/following" element={<Following />} />
+          <Route path="/followers" element={<Followers />} />
           <Route path="/users" element={<UsersIndex />} />
         </Routes>
       </div>

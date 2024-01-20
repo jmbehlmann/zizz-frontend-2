@@ -13,7 +13,7 @@ export function Navbar() {
   return (
     <header>
       <nav>
-       <Link to="/">Home</Link> | <Link to="/login">Login</Link> | <Link to="/signup">Sign Up</Link> | <Link to="/following">Following</Link> | <Link to="/users">Users</Link> | <button onClick={handleLogout}>Logout</button>
+       <Link to="/">Home</Link> | <Link to="/login">Login</Link> | <Link to="/signup">Sign Up</Link> | <Link to="/following">Following</Link> | <Link to="/followers">Followers</Link> | <Link to="/users">Users</Link> | <button onClick={handleLogout}>Logout</button>
       </nav>
     </header>
   )
