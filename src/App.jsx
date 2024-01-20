@@ -1,9 +1,12 @@
 import { Content } from "./Content";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
     <div>
-      <Content />
+      <BrowserRouter>
+        <Content />
+      </BrowserRouter>
     </div>
   )
 }

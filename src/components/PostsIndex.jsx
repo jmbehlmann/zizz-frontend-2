@@ -16,10 +16,11 @@ function formatCreatedAt(created_at) {
   return date.toLocaleString('en-US', options);
 }
 
-export function PostsIndex({ posts, setPosts }) {
+export function PostsIndex({ userId, posts, setPosts }) {
 
   const getPosts = () => {
-    axios.get(`http://localhost:3000/posts.json`)
+    const url = userId ? `http://localhost:3000/users/${userId}/posts.json` : `http://localhost:3000/posts.json`;
+    axios.get(url)
     .then((response) => {
       // console.log(response.data)
       setPosts(response.data)

@@ -14,6 +14,7 @@ export function PostsCreate({ onPostCreate }) {
       .catch((error) => {
         console.error('error creating post:', error);
       })
+    event.target.reset();
   }
 
   return (
