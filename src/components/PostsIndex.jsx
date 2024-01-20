@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 function formatCreatedAt(created_at) {
@@ -18,8 +19,9 @@ function formatCreatedAt(created_at) {
 
 export function PostsIndex({ userId, posts, setPosts }) {
 
+
   const getPosts = () => {
-    const url = userId ? `http://localhost:3000/users/${userId}/posts.json` : `http://localhost:3000/posts.json`;
+    const url = userId ? `http://localhost:3000/users/${userId}/posts.json?user_id=${userId}` : `http://localhost:3000/posts.json`;
     axios.get(url)
     .then((response) => {
       // console.log(response.data)
@@ -29,7 +31,7 @@ export function PostsIndex({ userId, posts, setPosts }) {
 
   useEffect(() => {
     getPosts();
-  }, [posts]);
+  }, [posts, userId]);
 
   return (
     <div>
@@ -38,6 +40,7 @@ export function PostsIndex({ userId, posts, setPosts }) {
       {posts.map(post => (
         <div key={post.id}>
           <h4>{post.username} - </h4>
+          <Link to={`./users/${post.user_id}`}>profile</Link>
           <p>{post.text}</p>
           <p>{formatCreatedAt(post.created_at)}</p>
         </div>

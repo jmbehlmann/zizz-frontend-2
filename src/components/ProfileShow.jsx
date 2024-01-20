@@ -3,10 +3,9 @@ import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 
-export function ProfileShow({ userId }) {
+export function ProfileShow() {
   const [posts, setPosts] = useState([])
   const { userId } = useParams();
-
 
 
   return (
