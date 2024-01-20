@@ -4,7 +4,7 @@ import { Signup } from './components/Signup'
 import { Login } from './components/Login'
 import { Dashboard } from './components/Dashboard'
 import { ProfileShow } from './components/ProfileShow'
-import { LeadersIndex } from './components/LeadersIndex'
+import { FollowingIndex } from './components/FollowingIndex'
 import { UsersIndex } from './components/UsersIndex'
 
 export function Content() {
@@ -19,7 +19,7 @@ export function Content() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/" element={<Dashboard />} />
           <Route path="/users/:userId" element={<ProfileShow />} />
-          <Route path="/leaders" element={<LeadersIndex />} />
+          <Route path="/following" element={<FollowingIndex />} />
           <Route path="/users" element={<UsersIndex />} />
         </Routes>
       </div>

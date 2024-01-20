@@ -14,7 +14,7 @@ export function Dashboard() {
   return (
     <div>
       <h1>Dashboard</h1>
-      <Link to="/leaders">Following</Link>
+      <Link to="/following">Following</Link>
       < PostsCreate onPostCreate={handlePostCreate}/>
       < PostsIndex posts={posts} setPosts={setPosts}/>
       <p>Following List</p>
