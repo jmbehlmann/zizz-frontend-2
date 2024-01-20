@@ -17,7 +17,7 @@ function formatCreatedAt(created_at) {
   return date.toLocaleString('en-US', options);
 }
 
-export function PostsIndex({ userId, posts, setPosts }) {
+export function PostsIndex({ userId, posts, setPosts, profileToggle }) {
 
 
   const getPosts = () => {
@@ -28,6 +28,7 @@ export function PostsIndex({ userId, posts, setPosts }) {
       setPosts(response.data)
     })
   }
+
 
   useEffect(() => {
     getPosts();
@@ -40,7 +41,8 @@ export function PostsIndex({ userId, posts, setPosts }) {
       {posts.map(post => (
         <div key={post.id}>
           <h4>{post.username} - </h4>
-          <Link to={`./users/${post.user_id}`}>profile</Link>
+          {!profileToggle && <Link to={`./users/${post.user_id}`}>profile</Link>
+          }
           <p>{post.text}</p>
           <p>{formatCreatedAt(post.created_at)}</p>
           <p>----------------------------------------------------------</p>

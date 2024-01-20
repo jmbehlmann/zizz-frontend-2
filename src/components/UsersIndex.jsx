@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export function UsersIndex() {
   const [users, setUsers] = useState([])
@@ -22,6 +23,7 @@ export function UsersIndex() {
         <div key={user.id}>
           <h4>{user.name} - </h4>
           <p>{user.email}</p>
+          <Link to={`./${user.id}`}>profile</Link>
           <p>----------------------------------------------------------</p>
         </div>
       ))}
