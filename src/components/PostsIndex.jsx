@@ -1,30 +1,44 @@
-import { useState } from 'react'
+import { useEffect } from 'react'
 import axios from 'axios'
 
+function formatCreatedAt(created_at) {
+  const date = new Date(created_at);
+  const options = {
+    weekday: 'short',
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true,
+    timeZone: 'America/Chicago'
+  };
+  return date.toLocaleString('en-US', options);
+}
 
-export function PostsIndex() {
-  const [posts, setPosts] = useState([])
+export function PostsIndex({ posts, setPosts }) {
 
   const getPosts = () => {
-    console.log("in get posts")
     axios.get(`http://localhost:3000/posts.json`)
     .then((response) => {
-      console.log(response.data)
+      // console.log(response.data)
       setPosts(response.data)
     })
   }
 
+  useEffect(() => {
+    getPosts();
+  }, [posts]);
+
   return (
     <div>
       <p>PostsIndex</p>
-      <button onClick={getPosts}>get posts</button>
+      {/* <button onClick={getPosts}>get posts</button> */}
       {posts.map(post => (
         <div key={post.id}>
-          <h4>{post.user_id} - </h4>
-          {/* <Link to={`./users/${post.user_id}`}>profile</Link> */}
+          <h4>{post.username} - </h4>
           <p>{post.text}</p>
-          {/* <h6>{formatCreatedAt(post.created_at)}</h6> */}
-          {/* <button onClick={() => props.onShowPost(post)}>More nonsense</button> */}
+          <p>{formatCreatedAt(post.created_at)}</p>
         </div>
       ))}
     </div>
