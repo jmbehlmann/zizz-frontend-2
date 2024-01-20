@@ -43,6 +43,7 @@ export function PostsIndex({ userId, posts, setPosts }) {
           <Link to={`./users/${post.user_id}`}>profile</Link>
           <p>{post.text}</p>
           <p>{formatCreatedAt(post.created_at)}</p>
+          <p>----------------------------------------------------------</p>
         </div>
       ))}
     </div>

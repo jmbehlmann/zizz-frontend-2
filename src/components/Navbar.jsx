@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export function Navbar() {
 
@@ -12,7 +13,7 @@ export function Navbar() {
   return (
     <header>
       <nav>
-        <a href="#">Home</a> | <a href="#">Link</a> | <button onClick={handleLogout}>Logout</button>
+       <Link to="/">Home</Link> | <Link to="/login">Login</Link> | <Link to="/signup">Sign Up</Link> | <Link to="/leaders">Leaders</Link> | <Link to="/users">Users</Link> | <button onClick={handleLogout}>Logout</button>
       </nav>
     </header>
   )
