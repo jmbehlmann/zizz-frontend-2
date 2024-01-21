@@ -1,6 +1,7 @@
-import { PostsIndex } from "./PostsIndex"
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { PostsIndex } from "./PostsIndex"
+import { RelationshipController } from "./RelationshipController"
 
 
 export function ProfileShow() {
@@ -12,7 +13,7 @@ export function ProfileShow() {
     <div>
       <p>ProfileShow</p>
       <p>Username:</p>
-      <button>Follow/Unfollow</button>
+      < RelationshipController />
       <p>ProfilePostsIndex</p>
       < PostsIndex userId={userId} posts={posts} setPosts={setPosts} profileToggle={profileToggle}/>
       <p>ProfileShow</p>

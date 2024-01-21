@@ -4,11 +4,12 @@ export function PostsCreate({ onPostCreate }) {
 
   const postCreate = (event) => {
     event.preventDefault();
-    console.log("postCreate")
+    // console.log("postCreate")
     const params = new FormData(event.target)
     axios
       .post(`http://localhost:3000/posts.json`, params)
       .then((response) => {
+        // console.log(response.data)
         onPostCreate(response.data);
       })
       .catch((error) => {

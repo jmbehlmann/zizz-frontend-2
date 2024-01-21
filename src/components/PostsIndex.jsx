@@ -19,7 +19,6 @@ function formatCreatedAt(created_at) {
 
 export function PostsIndex({ userId, posts, setPosts, profileToggle }) {
 
-
   const getPosts = () => {
     const url = userId ? `http://localhost:3000/users/${userId}/posts.json?user_id=${userId}` : `http://localhost:3000/posts.json`;
     axios.get(url)
@@ -32,7 +31,7 @@ export function PostsIndex({ userId, posts, setPosts, profileToggle }) {
 
   useEffect(() => {
     getPosts();
-  }, [posts, userId]);
+  }, [userId, setPosts]);
 
   return (
     <div>
