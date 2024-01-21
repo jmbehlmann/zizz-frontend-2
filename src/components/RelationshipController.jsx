@@ -46,17 +46,17 @@ export function RelationshipController() {
     })
   }
 
+  const handleButtonClick = () => {
+    if (isFollowing) {
+      destroyRelationship();
+    } else {
+      createRelationship();
+    }
+  }
+
   useEffect(() => {
     getRelationshipId();
-  }, [setRelationshipId, setIsFollowing]);
-
-  let button
-  if (isFollowing == true) {
-    button = <button onClick={destroyRelationship}>destroyRelationship</button>;
-  } else {
-    button = <button onClick={createRelationship}>createRelationship</button>
-
-  }
+  }, [setRelationshipId, setIsFollowing, userId]);
 
   console.log(relationshipId)
   console.log(isFollowing)
@@ -64,7 +64,9 @@ export function RelationshipController() {
   return (
     <div>
       <p>RelationshipController</p>
-      {button}
+      <button onClick={handleButtonClick}>
+        {isFollowing ? 'Unfollow!' : 'Follow!'}
+      </button>
     </div>
   )
 }
