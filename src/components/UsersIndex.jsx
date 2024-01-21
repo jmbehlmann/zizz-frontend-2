@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 export function UsersIndex() {
@@ -15,10 +15,13 @@ export function UsersIndex() {
       })
   }
 
+  useEffect(() => {
+    getUsers();
+  }, []);
+
   return (
     <div>
       <p>UsersIndex</p>
-      <button onClick={getUsers}>Get Users</button>
       {users.map(user => (
         <div key={user.id}>
           <h4>{user.name} - </h4>

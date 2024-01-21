@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export function RelationshipsIndex({followerToggle}) {
 
@@ -17,11 +17,13 @@ export function RelationshipsIndex({followerToggle}) {
 
   }
 
+  useEffect(() => {
+    getRelationshipsIndex();
+  }, []);
 
   return (
     <div>
       <p>RelationshipsIndex</p>
-      <button onClick={getRelationshipsIndex}>Get Relationships</button>
       {relationships.map(relationship => (
       <div key={relationship.id}>
         {followerToggle ? (
